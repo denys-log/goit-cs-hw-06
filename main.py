@@ -1,4 +1,3 @@
-import certifi
 import mimetypes
 import json
 import socket
@@ -80,8 +79,7 @@ def run_http_server():
 
 
 def save_to_db(data):
-    client = MongoClient(URI_DB, server_api=ServerApi('1'),
-                         tlsCAFile=certifi.where())
+    client = MongoClient(URI_DB, server_api=ServerApi('1'))
     db = client.homework
 
     try:
