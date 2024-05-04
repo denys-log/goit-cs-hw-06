@@ -87,9 +87,6 @@ def save_to_db(data):
         parse_data = dict([i.split("=") for i in data.split("&")])
         current_datetime = datetime.now()
         date_string = current_datetime.strftime("%Y-%m-%d %H:%M:%S.%f")
-        r = {"username": parse_data["username"],
-             "message": parse_data["message"], "date": date_string}
-        print(f"r - {r}")
         db.messages.insert_one(
             {"username": parse_data["username"], "message": parse_data["message"], "date": date_string})
     except Exception as e:
